@@ -1,0 +1,24 @@
+.InitialNavigation {
+    animation: cssAnimation 0s 3s forwards;
+    visibility: hidden;
+}
+
+.FileStructure {
+    animation: cssAnimation 0s 3.25s forwards;
+    visibility: hidden;
+}
+
+.PostNavigation {
+    animation: cssAnimation 0s 3.5s forwards;
+    visibility: hidden;
+}
+
+.Input {
+    background: black;
+    border: black;
+    color: #39ff14;
+}
+
+@keyframes cssAnimation {
+    to   { visibility: visible; }
+}
