@@ -1,15 +1,5 @@
-.InitialNavigation {
-    animation: cssAnimation 0s 3s forwards;
-    visibility: hidden;
-}
-
-.FileStructure {
-    animation: cssAnimation 0s 3.25s forwards;
-    visibility: hidden;
-}
-
 .PostNavigation {
-    animation: cssAnimation 0s 3.5s forwards;
+    animation: cssAnimation 0s .8s forwards;
     visibility: hidden;
 }
 
@@ -17,6 +7,10 @@
     background: black;
     border: black;
     color: #39ff14;
+}
+
+.Form {
+    display: inline-block;
 }
 
 @keyframes cssAnimation {

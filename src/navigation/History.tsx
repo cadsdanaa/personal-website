@@ -1,13 +1,9 @@
 import React from 'react';
 
-export interface HistoryProps {
-    command: string;
-    result: string;
-}
-
-export function History(historyProps: HistoryProps) {
+export function History(historyProps: any) {
     return <div>
         C:/AlexDana &gt; &nbsp; {historyProps.command}
-        {historyProps.result};
+        <br/>
+        <span>{historyProps.result}</span>
     </div>
 }
