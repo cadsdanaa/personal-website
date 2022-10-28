@@ -4,7 +4,7 @@ import './History';
 import {History} from "./History";
 
 export function Navigation() {
-    const [history1, setHistory1] = React.useState({command: 'ls', result: 'About Links  Projects  Resume'});
+    const [history1, setHistory1] = React.useState({command: 'ls', result: 'About Links Projects Education Experience'});
     const [history2, setHistory2] = React.useState({command: '', result: ''});
     const [history3, setHistory3] = React.useState({command: '', result: ''});
     const [history4, setHistory4] = React.useState({command: '', result: ''});
@@ -14,7 +14,7 @@ export function Navigation() {
         switch (command.toLowerCase()) {
             case 'ls':
             case 'dir':
-                return 'About Links Projects Resume';
+                return 'About Links Projects Education Experience';
             case 'about':
                 return 'Experienced software engineer with a primary focus on backend Java development. Extensive experience using various Spring frameworks. Strong advocate for the benefits that test driven development and other extreme programming practices can bring to a team.';
             case 'links':
@@ -25,8 +25,16 @@ export function Navigation() {
                 </>;
             case 'projects':
                 return 'Projects';
-            case 'resume':
-                return 'Resume';
+            case 'experience':
+                return <>
+                    <>- 6+ years working in software engineering</><br/>
+                    <>- 1+ years AWS experience (CDK, Lambda, Step Functions, EventBridge, etc.)</><br/>
+                    <>- 6+ years Java & Spring experience</><br/>
+                    <>- 2+ years Typescript experience</><br/>
+
+                </>;
+            case 'education':
+                return 'Degree in Software Engineering from Iowa State University';
             default:
                 return 'Command not recognized...';
         }
