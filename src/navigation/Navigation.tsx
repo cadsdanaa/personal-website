@@ -1,42 +1,37 @@
-import React, {FormEvent} from "react";
+import React, {FormEvent, ReactElement} from "react";
 import './Navigation.css';
 import './History';
 import {History} from "./History";
+import {Experience} from "../experience/Experience";
+import {Education} from "../education/Education";
+import {Links} from "../links/Links";
+import {About} from "../about/About";
+import {Directory} from "../directory/Directory";
 
 export function Navigation() {
-    const [history1, setHistory1] = React.useState({command: 'ls', result: 'About Links Projects Education Experience'});
-    const [history2, setHistory2] = React.useState({command: '', result: ''});
-    const [history3, setHistory3] = React.useState({command: '', result: ''});
-    const [history4, setHistory4] = React.useState({command: '', result: ''});
-    const [history5, setHistory5] = React.useState({command: '', result: ''});
+    const [history1, setHistory1] = React.useState({command: 'ls', result: <Directory/>});
+    const [history2, setHistory2] = React.useState({command: '', result: <></>});
+    const [history3, setHistory3] = React.useState({command: '', result: <></>});
+    const [history4, setHistory4] = React.useState({command: '', result: <></>});
+    const [history5, setHistory5] = React.useState({command: '', result: <></>});
 
-    const determineResult = (command: string): any =>  {
+    const determineResult = (command: string): ReactElement =>  {
         switch (command.toLowerCase()) {
             case 'ls':
             case 'dir':
-                return 'About Links Projects Education Experience';
+                return <Directory/>;
             case 'about':
-                return 'Experienced software engineer with a primary focus on backend Java development. Extensive experience using various Spring frameworks. Strong advocate for the benefits that test driven development and other extreme programming practices can bring to a team.';
+                return <About/>;
             case 'links':
-                return <>
-                    <a style={{color: '#39ff14'}} target={'blank'} href="https://github.com/cadsdanaa">Github</a>&nbsp;&nbsp;
-                    <a style={{color: '#39ff14'}} target={'blank'} href="https://linkedin.com/in/alex-dana-907a74193">LinkedIn</a>&nbsp;&nbsp;
-                    <a style={{color: '#39ff14'}} download href="Resume.pdf" target={'_self'}>Resume</a>
-                </>;
-            case 'projects':
-                return 'Projects';
+                return <Links/>;
             case 'experience':
-                return <>
-                    <>- 6+ years working in software engineering</><br/>
-                    <>- 1+ years AWS experience (CDK, Lambda, Step Functions, EventBridge, etc.)</><br/>
-                    <>- 6+ years Java & Spring experience</><br/>
-                    <>- 2+ years Typescript experience</><br/>
-
-                </>;
+            case 'exp':
+                return <Experience/>
             case 'education':
-                return 'Degree in Software Engineering from Iowa State University';
+            case 'edu':
+                return <Education/>
             default:
-                return 'Command not recognized...';
+                return <>Command not recognized...</>;
         }
 
     }
@@ -45,11 +40,11 @@ export function Navigation() {
         form.preventDefault();
         const command = (form as any).target[0].value;
         if(command === 'clear' || command === 'cls') {
-            setHistory1({command: '', result: ''});
-            setHistory2({command: '', result: ''});
-            setHistory3({command: '', result: ''});
-            setHistory4({command: '', result: ''});
-            setHistory5({command: '', result: ''});
+            setHistory1({command: '', result: <></>});
+            setHistory2({command: '', result: <></>});
+            setHistory3({command: '', result: <></>});
+            setHistory4({command: '', result: <></>});
+            setHistory5({command: '', result: <></>});
             return;
         }
         const result = determineResult(command);
