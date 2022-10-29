@@ -39,6 +39,7 @@ export function Navigation() {
     const navigate = (form: FormEvent<HTMLFormElement>) => {
         form.preventDefault();
         const command = (form as any).target[0].value.trim().toLowerCase();
+        (form as any).target[0].value = '';
         if(command === 'clear' || command === 'cls') {
             setHistory1({command: '', result: <></>});
             setHistory2({command: '', result: <></>});
