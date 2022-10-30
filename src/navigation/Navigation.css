@@ -1,23 +1,24 @@
 .PostNavigation {
-    animation: cssAnimation 0s var(--n, .75s) forwards;
+    animation: unhideAnimation 0s var(--n, .75s) forwards;
     height: 0;
     overflow: hidden;
 }
 
+@keyframes unhideAnimation {
+    to   { height: inherit }
+}
+
 .Input {
-    background: black;
-    border: 0;
-    outline: 0;
-    color: #39ff14;
+background: black;
+border: 0;
+outline: 0;
+color: #39ff14;
 }
 
 .Form {
-    display: inline-block;
+display: inline-block;
 }
 
-@keyframes cssAnimation {
-    to   { height: inherit }
-}
 
 .typewriterFont span {
     font-family: monospace;
