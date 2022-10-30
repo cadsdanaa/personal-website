@@ -1,6 +1,8 @@
 import React from "react";
 import './Links.css';
 
+export const LINKS_LENGTH = 24;
+
 export function Links() {
     return <>
         <a target={'blank'} href="https://github.com/cadsdanaa">Github</a>&nbsp;&nbsp;

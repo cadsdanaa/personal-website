@@ -1,5 +1,5 @@
 .PostNavigation {
-    animation: cssAnimation 0s .8s forwards;
+    animation: cssAnimation 0s var(--n, .75s) forwards;
     visibility: hidden;
 }
 

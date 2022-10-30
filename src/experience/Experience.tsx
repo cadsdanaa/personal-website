@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const EXPERIENCE_LENGTH = 183;
+
 export function Experience() {
     return <>
         <>- 6+ years working in software engineering</><br/>

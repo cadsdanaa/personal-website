@@ -1,11 +1,11 @@
 import React, {FormEvent, ReactElement} from "react";
 import './Navigation.css';
 import {History} from "./History";
-import {Experience} from "../experience/Experience";
-import {Education} from "../education/Education";
-import {Links} from "../links/Links";
-import {About} from "../about/About";
-import {Directory} from "../directory/Directory";
+import {Experience, EXPERIENCE_LENGTH} from "../experience/Experience";
+import {Education, EDUCATION_LENGTH} from "../education/Education";
+import {Links, LINKS_LENGTH} from "../links/Links";
+import {About, ABOUT_LENGTH} from "../about/About";
+import {Directory, DIRECTORY_LENGTH} from "../directory/Directory";
 
 export function Navigation() {
     const [history1, setHistory1] = React.useState({command: 'ls', result: <Directory/>});
@@ -14,32 +14,38 @@ export function Navigation() {
     const [history4, setHistory4] = React.useState({command: '', result: <></>});
     const [history5, setHistory5] = React.useState({command: '', result: <></>});
 
-    const determineResult = (command: string): ReactElement =>  {
+    const determineResult = (command: string): any =>  {
         switch (command) {
             case 'ls':
             case 'dir':
-                return <Directory/>;
+                return {result: <Directory/>, length: DIRECTORY_LENGTH};
             case 'about':
-                return <About/>;
+                return {result: <About/>, length: ABOUT_LENGTH};
             case 'links':
-                return <Links/>;
+                return {result: <Links/>, length: LINKS_LENGTH};
             case 'experience':
             case 'exp':
-                return <Experience/>
+                return {result: <Experience/>, length: EXPERIENCE_LENGTH}
             case 'education':
             case 'edu':
-                return <Education/>
+                return {result: <Education/>, length: EDUCATION_LENGTH}
             default:
-                return <>Command not recognized...</>;
+                return {result: <>Command not recognized...</>, length: 25};
         }
 
     }
 
-    function resetAnimations() {
+    function resetAnimations(resultLength: string) {
         document.getElementById('history')!.className = '';
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         document.getElementById('history')!.offsetWidth;
         document.getElementById('history')!.className = 'typewriter';
+
+        document.getElementById('input')!.className = '';
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        document.getElementById('input')!.offsetWidth;
+        document.getElementById('input')!.style.setProperty('--n', resultLength);
+        document.getElementById('input')!.className = 'PostNavigation';
     }
 
     const navigate = (form: FormEvent<HTMLFormElement>) => {
@@ -57,13 +63,13 @@ export function Navigation() {
             setHistory5({command: '', result: <></>});
             return;
         }
-        const result = determineResult(command);
+        const {result, length} = determineResult(command);
         setHistory5(history4);
         setHistory4(history3);
         setHistory3(history2);
         setHistory2(history1);
         setHistory1({command, result});
-        resetAnimations();
+        resetAnimations(length*.01 + 's');
     }
 
     return (
