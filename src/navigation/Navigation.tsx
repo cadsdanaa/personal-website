@@ -1,6 +1,5 @@
 import React, {FormEvent, ReactElement} from "react";
 import './Navigation.css';
-import './History';
 import {History} from "./History";
 import {Experience} from "../experience/Experience";
 import {Education} from "../education/Education";
@@ -36,10 +35,20 @@ export function Navigation() {
 
     }
 
+    function resetAnimations() {
+        document.getElementById('history')!.className = '';
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        document.getElementById('history')!.offsetWidth;
+        document.getElementById('history')!.className = 'typewriter';
+    }
+
     const navigate = (form: FormEvent<HTMLFormElement>) => {
         form.preventDefault();
         const command = (form as any).target[0].value.trim().toLowerCase();
         (form as any).target[0].value = '';
+        if(command === '') {
+            return;
+        }
         if(command === 'clear' || command === 'cls') {
             setHistory1({command: '', result: <></>});
             setHistory2({command: '', result: <></>});
@@ -54,6 +63,7 @@ export function Navigation() {
         setHistory3(history2);
         setHistory2(history1);
         setHistory1({command, result});
+        resetAnimations();
     }
 
     return (
@@ -62,8 +72,8 @@ export function Navigation() {
             {history4.command ? <History command={history4.command} result={history4.result}/> : <></>}
             {history3.command ? <History command={history3.command} result={history3.result}/> : <></>}
             {history2.command ? <History command={history2.command} result={history2.result}/> : <></>}
-            {history1.command ? <History command={history1.command} result={history1.result}/> : <></>}
-            <div className='PostNavigation'>
+            {history1.command ? <div id={'history'} className={'typewriter'}><History command={history1.command} result={history1.result}/></div> : <></>}
+            <div id={'input'} className='PostNavigation'>
                 C:/AlexDana &gt; &nbsp;
                 <form className={'Form'} onSubmit={(navValue) => navigate(navValue)}>
                     <input autoFocus={true} className='Input'/>
