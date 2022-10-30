@@ -36,10 +36,12 @@ export function Navigation() {
     }
 
     function resetAnimations(resultLength: string) {
-        document.getElementById('history')!.className = '';
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        document.getElementById('history')!.offsetWidth;
-        document.getElementById('history')!.className = 'typewriter';
+        if(document.getElementById('history')) {
+            document.getElementById('history')!.className = '';
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            document.getElementById('history')!.offsetWidth;
+            document.getElementById('history')!.className = 'typewriter';
+        }
 
         document.getElementById('input')!.className = '';
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
