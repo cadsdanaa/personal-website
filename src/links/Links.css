@@ -1,3 +1,20 @@
 a {
-    color: #39ff14;
+    color: black;
+    position: fixed;
+}
+
+a:hover {
+    color: black;
+}
+
+.Github {
+    left: 0;
+}
+
+.LinkedIn {
+    left: 8ch;
+}
+
+.Resume {
+    left: 18ch;
 }
