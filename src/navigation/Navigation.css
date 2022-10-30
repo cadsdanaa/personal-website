@@ -6,7 +6,8 @@
 
 .Input {
     background: black;
-    border: black;
+    border: 0;
+    outline: 0;
     color: #39ff14;
 }
 
