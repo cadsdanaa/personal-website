@@ -1,4 +1,4 @@
-import React, {FormEvent, ReactElement} from "react";
+import React, {FormEvent} from "react";
 import './Navigation.css';
 import {History} from "./History";
 import {Experience, EXPERIENCE_LENGTH} from "../experience/Experience";
@@ -32,7 +32,6 @@ export function Navigation() {
             default:
                 return {result: <>Command not recognized...</>, length: 25};
         }
-
     }
 
     function resetAnimations(resultLength: string) {
