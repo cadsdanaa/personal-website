@@ -18,6 +18,18 @@
     to   { height: inherit }
 }
 
+.typewriterFont span {
+    font-family: monospace;
+    color:#0000;
+    background:
+            linear-gradient(-90deg, #39ff14 5px,#0000 0) 10px 0,
+            linear-gradient(#39ff14 0 0) 0 0;
+    background-size:calc(999*1ch) 200%;
+    -webkit-background-clip:padding-box,text;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+}
+
 .typewriter span {
     font-family: monospace;
     color:#0000;

@@ -70,15 +70,15 @@ export function Navigation() {
         setHistory3(history2);
         setHistory2(history1);
         setHistory1({command, result});
-        resetAnimations(length*.01 + 's');
+        resetAnimations(length*.012 + 's');
     }
 
     return (
         <div>
-            {history5.command ? <History command={history5.command} result={history5.result}/> : <></>}
-            {history4.command ? <History command={history4.command} result={history4.result}/> : <></>}
-            {history3.command ? <History command={history3.command} result={history3.result}/> : <></>}
-            {history2.command ? <History command={history2.command} result={history2.result}/> : <></>}
+            {history5.command ? <div className={'typewriterFont'}><History command={history5.command} result={history5.result}/></div> : <></>}
+            {history4.command ? <div className={'typewriterFont'}><History command={history4.command} result={history4.result}/></div> : <></>}
+            {history3.command ? <div className={'typewriterFont'}><History command={history3.command} result={history3.result}/></div> : <></>}
+            {history2.command ? <div className={'typewriterFont'}><History command={history2.command} result={history2.result}/></div> : <></>}
             {history1.command ? <div id={'history'} className={'typewriter'}><History command={history1.command} result={history1.result}/></div> : <></>}
             <div id={'input'} className='PostNavigation'>
                 C:/AlexDana &gt; &nbsp;
