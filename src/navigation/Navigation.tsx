@@ -20,24 +20,33 @@ export function Navigation() {
             case 'dir':
                 return {result: <Directory/>, length: DIRECTORY_LENGTH};
             case 'about':
+            case './about':
                 return {result: <About/>, length: ABOUT_LENGTH};
             case 'links':
+            case './links':
                 return {result: <Links/>, length: LINKS_LENGTH};
             case 'experience':
             case 'exp':
+            case './experience':
+            case './exp':
                 return {result: <Experience/>, length: EXPERIENCE_LENGTH}
             case 'education':
+            case './education':
             case 'edu':
+            case './edu':
                 return {result: <Education/>, length: EDUCATION_LENGTH}
             case 'linkedin':
+            case './linkedin':
                 window.open('https://www.linkedin.com/in/alex-dana-907a74193', '_blank');
                 return {result: <>Navigating to page...</>, length: 21};
             case 'github':
+            case './github':
                 window.open('https://github.com/cadsdanaa', '_blank');
                 return {result: <>Navigating to page...</>, length: 21};
             case 'resume':
+            case './resume':
                 window.open('Resume.pdf', '_blank');
-                return {result: <>Opening resume...</>, length: 21};
+                return {result: <>Opening resume...</>, length: 17};
             default:
                 return {result: <>Command not recognized...</>, length: 25};
         }
