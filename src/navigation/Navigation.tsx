@@ -1,6 +1,6 @@
 import React, {FormEvent} from "react";
 import './Navigation.css';
-import {History} from "./History";
+import {History} from "../history/History";
 import {Experience, EXPERIENCE_LENGTH} from "../experience/Experience";
 import {Education, EDUCATION_LENGTH} from "../education/Education";
 import {Links, LINKS_LENGTH} from "../links/Links";
@@ -29,6 +29,15 @@ export function Navigation() {
             case 'education':
             case 'edu':
                 return {result: <Education/>, length: EDUCATION_LENGTH}
+            case 'linkedin':
+                window.open('https://www.linkedin.com/in/alex-dana-907a74193', '_blank');
+                return {result: <>Navigating to page...</>, length: 21};
+            case 'github':
+                window.open('https://github.com/cadsdanaa', '_blank');
+                return {result: <>Navigating to page...</>, length: 21};
+            case 'resume':
+                window.open('Resume.pdf', '_blank');
+                return {result: <>Opening resume...</>, length: 21};
             default:
                 return {result: <>Command not recognized...</>, length: 25};
         }
