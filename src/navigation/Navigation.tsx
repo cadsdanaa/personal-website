@@ -6,6 +6,7 @@ import {Education, EDUCATION_LENGTH} from "../education/Education";
 import {Links, LINKS_LENGTH} from "../links/Links";
 import {About, ABOUT_LENGTH} from "../about/About";
 import {Directory, DIRECTORY_LENGTH} from "../directory/Directory";
+import {Games, GAMES_LENGTH} from "../games/Games";
 
 export function Navigation() {
     const [history1, setHistory1] = React.useState({command: 'ls', result: <Directory/>});
@@ -35,6 +36,9 @@ export function Navigation() {
             case 'edu':
             case './edu':
                 return {result: <Education/>, length: EDUCATION_LENGTH}
+            case 'games' :
+            case 'game':
+                return {result: <Games/>, length: GAMES_LENGTH}
             case 'linkedin':
             case './linkedin':
                 window.open('https://www.linkedin.com/in/alex-dana-907a74193', '_blank');
