@@ -1,0 +1,12 @@
+.Popup {
+    border: 2px solid green;
+    width: 30%;
+    background-color: black;
+}
+
+.PopupNavbar {
+    border: 1px solid green;
+    height: 25px;
+    cursor: default;
+    background-color: black;
+}
